@@ -11,3 +11,6 @@ Fishcake 내용:
 	> git clone git://github.com/gamtoggi/fishcake.git
 	> cd fishcake
 	> rake fishcake:rename NAME=your_app_name
+	> rake db:create
+	
+	** user model migration 파일을 확인후 수정하세요!

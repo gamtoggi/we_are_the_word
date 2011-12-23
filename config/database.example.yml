@@ -1,0 +1,34 @@
+mysql: &mysql
+  adapter: mysql2
+  charset: utf8
+  collation: utf8_general_ci
+  reconnect: false
+  pool: 5
+  port: 3306
+  
+mac: &mac
+  socket: /tmp/mysql.sock
+  host: localhost                            	
+  username: root
+  password:
+
+ubuntu: &ubuntu
+  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
+  username: root
+  password: 
+
+development:
+  <<: *mysql
+  <<: *mac
+  database: fishcake_development
+  
+test:
+  <<: *mysql
+  <<: *mac
+  database: fishcake_test
+
+production:
+  <<: *mysql
+  <<: *ubuntu 
+  database: fishcake_production
