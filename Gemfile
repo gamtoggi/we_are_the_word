@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
+gem 'kaminari'
 
 group :development do
   gem 'capistrano'
