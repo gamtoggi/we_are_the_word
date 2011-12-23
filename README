@@ -13,4 +13,9 @@ Fishcake 내용:
 	> rake fishcake:rename NAME=your_app_name
 	> rake db:create
 	
-	** user model migration 파일을 확인후 수정하세요!
+주의사항:		
+	* welcome index 페이지가 필요 없다면:
+		> rails destroy controller welcome index
+		을 하고 난후, route.rb 파일의 root :to => 'welcome#index' 부분 수정.
+		
+	* user model migration 파일을 확인후 수정하세요!
