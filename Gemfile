@@ -8,16 +8,20 @@ gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
 gem 'kaminari'
+gem 'hpricot'
 
 group :development do
   gem 'capistrano'
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'hpricot'
 	gem 'ruby_parser'
 end
 
 group :test do
   gem 'turn', :require => false
+end
+
+group :production do
+  gem 'passenger'
 end
 
 group :assets do

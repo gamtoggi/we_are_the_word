@@ -11,6 +11,7 @@ Fishcake 내용:
 	> git clone git://github.com/gamtoggi/fishcake.git
 	> cd fishcake
 	> rake fishcake:rename NAME=your_app_name
+	database.yml 생성(database.example.yml) 후 
 	> rake db:create
 	
 주의사항:		
@@ -19,3 +20,15 @@ Fishcake 내용:
 		을 하고 난후, route.rb 파일의 root :to => 'welcome#index' 부분 수정.
 		
 	* user model migration 파일을 확인후 수정하세요!
+	
+나의 첫 배포작업 메모:
+	* 사전작업: 웹서버 준비...
+	1. deploy.rb 를 생성 (deploy.example.rb 를 참고.)
+	2. .gitignore 에서 deploy.rb 제거
+	3. > cap deploy:setup
+	4. > cap deploy:check
+	5. 배포 서버에 shared/config/database.yml 생성해 두기 (scp [source] [destination] 이용)
+	6. > rake db:create RAILS_ENV=production
+	7. > cap deploy
+	
+	(capistrano 참고문서: https://github.com/capistrano/capistrano/wiki/)
