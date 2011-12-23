@@ -1,0 +1,13 @@
+Welcome to Fishcake!
+
+Fishcake 내용:
+	* devise
+	* kaminary
+	* cancan
+	* haml
+	* capistrano
+
+사용법:
+	> git clone git://github.com/gamtoggi/fishcake.git
+	> cd fishcake
+	> rake fishcake:rename NAME=your_app_name
