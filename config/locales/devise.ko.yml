@@ -21,7 +21,7 @@ ko:
       signed_out: '로그아웃 되었습니다.'
     passwords:
       send_instructions: '몇 분 내로 비밀번호 재설정 메일이 도착할 것 입니다.'
-       updated: '새로운 비밀번호가 저장되었습니다.'
+      updated: '새로운 비밀번호가 저장되었습니다.'
     confirmations:
       send_instructions: '몇 분 내로 계정 확인 메일이 도착할 것 입니다.'
       confirmed: '계정이 확인되었습니다.'
