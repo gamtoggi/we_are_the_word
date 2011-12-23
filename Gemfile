@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 
 gem 'haml-rails'
+gem 'devise'
 
 group :development do
   gem 'capistrano'
