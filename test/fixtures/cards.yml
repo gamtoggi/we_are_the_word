@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  word: MyString
+  mean: MyString
+  level: 1
+
+two:
+  user: 
+  word: MyString
+  mean: MyString
+  level: 1
