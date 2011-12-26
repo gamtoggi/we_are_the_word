@@ -1,17 +1,17 @@
 require "bundler/capistrano" # automatically run "bundle install".
 
 #app
-set :application, "fishcake"
+set :application, "we_are_the_word"
 
 # git
 set :scm, :git
-set :repository,  "git://github.com/gamtoggi/fishcake.git"
+set :repository,  "git://github.com/gamtoggi/we_are_the_word.git"
 set :git_shallow_clone, 1
      
 # server
 server "your_server.com", :app, :web, :db, :primary => true
 set :user, "root" 
-set :deploy_to, "/your_deploy_path/fishcake"
+set :deploy_to, "/your_deploy_path/we_are_the_word"
 
 
 namespace :deploy do

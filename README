@@ -1,6 +1,6 @@
-Welcome to Fishcake!
+Welcome to WeAreTheWord!
 
-Fishcake 내용:
+WeAreTheWord 내용:
 	* devise
 	* kaminary
 	* cancan
@@ -8,9 +8,9 @@ Fishcake 내용:
 	* capistrano
 
 사용법:
-	> git clone git://github.com/gamtoggi/fishcake.git
-	> cd fishcake
-	> rake fishcake:rename NAME=your_app_name
+	> git clone git://github.com/gamtoggi/we_are_the_word.git
+	> cd we_are_the_word
+	> rake we_are_the_word:rename NAME=your_app_name
 	database.yml 생성(database.example.yml) 후 
 	> rake db:create
 	

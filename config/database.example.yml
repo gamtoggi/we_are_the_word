@@ -21,14 +21,14 @@ ubuntu: &ubuntu
 development:
   <<: *mysql
   <<: *mac
-  database: fishcake_development
+  database: we_are_the_word_development
   
 test:
   <<: *mysql
   <<: *mac
-  database: fishcake_test
+  database: we_are_the_word_test
 
 production:
   <<: *mysql
   <<: *ubuntu 
-  database: fishcake_production
+  database: we_are_the_word_production
