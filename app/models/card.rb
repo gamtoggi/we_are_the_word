@@ -1,3 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :user
+  
+  validates_presence_of :user_id, :word, :mean, :level
+  validates_numericality_of :level, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 3
+  validates_length_of :word, :mean, :maximum => 255
 end

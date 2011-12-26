@@ -7,16 +7,10 @@
           %li= msg
 
   .field
-    = f.label :user
-    = f.text_field :user
-  .field
     = f.label :word
     = f.text_field :word
   .field
     = f.label :mean
-    = f.text_field :mean
-  .field
-    = f.label :level
-    = f.number_field :level
+    = f.text_area :mean, :rows => 3
   .actions
     = f.submit 'Save'

@@ -1,24 +1,11 @@
-%h1 Listing cards
-
-%table
-  %tr
-    %th User
-    %th Word
-    %th Mean
-    %th Level
-    %th
-    %th
-    %th
-
+.cards
   - @cards.each do |card|
-    %tr
-      %td= card.user
-      %td= card.word
-      %td= card.mean
-      %td= card.level
-      %td= link_to 'Show', card
-      %td= link_to 'Edit', edit_card_path(card)
-      %td= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
+    .card[card]
+      .word= card.word
+      .mean= card.mean
+      .controll
+        = link_to 'Edit', edit_card_path(card)
+        = link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
