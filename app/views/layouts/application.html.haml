@@ -2,12 +2,19 @@
 %html
   %head
     %title WeAreTheWord
+    
+    / viewport
     %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no"}
     %meta{:name => "HandheldFriendly", :content => "True"}
     %meta{:name => "MobileOptimized", :content => "320"}
+    
+    / jquery mobile
+    %script{:src => "http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"}
+    
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    
   %body
     %p.notice= notice
     %p.alert= alert

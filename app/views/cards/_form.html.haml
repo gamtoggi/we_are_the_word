@@ -8,9 +8,9 @@
 
   .field
     = f.label :word
-    = f.text_field :word
+    = f.text_field :word, :class => 'eng', :style => "ime-mode:inactive;"
   .field
     = f.label :mean
-    = f.text_area :mean, :rows => 3
+    = f.text_area :mean, :rows => 3, :class => 'kor', :style => "ime-mode:active;"
   .actions
     = f.submit 'Save'
