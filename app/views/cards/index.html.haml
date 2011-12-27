@@ -1,3 +1,13 @@
+- content_for :head do
+  :javascript   
+    $(document).ready(function(){
+      $(".content").hide();
+      $(".word").click(function(){
+        $(this).siblings(".content").slideToggle("fast");
+      });
+    });   
+
+
 = link_to 'New Card', new_card_path    
 
 .tab
@@ -9,10 +19,11 @@
   - @cards.each do |card|
     .card[card]
       .word= card.word
-      .mean= card.mean
-      .controll
-        = link_to 'Edit', edit_card_path(card)
-        = link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
+      .content
+        .mean= card.mean
+        .controll
+          = link_to 'Edit', edit_card_path(card)
+          = link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
 
 = paginate @cards        
 
