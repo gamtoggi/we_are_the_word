@@ -1,4 +1,6 @@
 class Card < ActiveRecord::Base
+  paginates_per 100
+  
   belongs_to :user
   
   validates_presence_of :user_id, :word, :mean, :level

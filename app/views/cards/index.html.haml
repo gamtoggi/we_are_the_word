@@ -5,7 +5,7 @@
   = link_to 'Week', cards_path(tab: 'week')
 
 .cards
-  .cards_count= "#{@cards.count} words!"
+  .cards_count= "#{@cards.total_count} words!"
   - @cards.each do |card|
     .card[card]
       .word= card.word
@@ -13,5 +13,7 @@
       .controll
         = link_to 'Edit', edit_card_path(card)
         = link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
+
+= paginate @cards        
 
 
