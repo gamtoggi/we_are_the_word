@@ -9,7 +9,7 @@
     %meta{:name => "MobileOptimized", :content => "320"}
     
     / jquery mobile
-    %script{:src => "http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"}
+    /%script{:src => "http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"}
     
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
@@ -20,6 +20,14 @@
   %body
     %p.notice= notice
     %p.alert= alert
+    
+    %nav
+      %ul
+        %li= link_to "Today", cards_path
+        %li= link_to "Week", cards_path(tab: 'week')
+        %li= link_to "Reminder", "#"
+      = link_to "ADD", new_card_path  
+    
     = yield
   %footer 
     = link_to "logout", destroy_user_session_path 

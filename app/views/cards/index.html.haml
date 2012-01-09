@@ -7,15 +7,7 @@
       });
     });   
 
-
-= link_to 'New Card', new_card_path    
-
-.tab
-  = link_to "Today(#{current_user.cards.today.count})", cards_path
-  = link_to "Week(#{current_user.cards.week.count})", cards_path(tab: 'week')
-
 .cards
-  .cards_count= "#{@cards.total_count} words!"
   - @cards.each do |card|
     .card[card]
       .word= card.word
