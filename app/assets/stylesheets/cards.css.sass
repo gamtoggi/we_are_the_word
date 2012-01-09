@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$grace_gray: #F5F5F0
+
 *           
   margin: 0
   padding: 0
@@ -10,9 +12,10 @@ a
   text-decoration: none
 
 nav
-  background-color: blue
+  background-color: DarkBlue
   overflow: hidden
-  padding: 5px 10px
+  padding: 5px 10px  
+  margin: 0 0 25px 0
   ul
     list-style-type: none
     li
@@ -23,7 +26,7 @@ nav
         background-color: DarkBlue
         padding: 0.8em 1em
         margin: 12px 0
-        width: 120px
+        width: 100px
         text-align: center
         font:
           size: 18px
@@ -34,5 +37,27 @@ nav
     float: right
     background-color: yellow
     padding: 25px      
+    
+.card
+  border: 1px solid black
+  margin: 5px 10px
+  
+  .word
+    background-color: white
+    padding: 15px 20px
+    font:
+      size: 30px
+      family: arial, sans-serif
+      weight: bold 
+  .content
+    padding: 10px 30px
+    .mean
+      font:
+        size: 20px
+        family: arial, sans-serif
+        
+    .controll
+      text-align: right
+      margin: 10px 0  
   
     
