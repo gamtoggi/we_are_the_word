@@ -7,9 +7,9 @@ class CardsController < ApplicationController
     cards = current_user.cards
     
     if params[:tab] == 'week'
-      cards = cards.week.create_order
+      cards = cards.week.create_asc
     else
-      cards = cards.today.recent_order
+      cards = cards.today.create_desc
     end
     
     @cards = paginate(cards)

@@ -7,6 +7,14 @@
       });
     });   
 
+%nav.menu
+  %ul.tabs
+    %li.tab= link_to "Today", cards_path
+    %li.tab= link_to "Week", cards_path(tab: 'week')
+    %li.tab= link_to "Reminder", "#"
+  = link_to "+", new_card_path, :class => "add"  
+
+
 .cards
   - @cards.each do |card|
     .card[card]
