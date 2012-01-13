@@ -1,4 +1,5 @@
 class Card < ActiveRecord::Base
+  extend CardBuilder
   paginates_per 100
   
   belongs_to :user

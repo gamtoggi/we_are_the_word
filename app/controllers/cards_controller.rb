@@ -52,4 +52,10 @@ class CardsController < ApplicationController
       redirect_to cards_path, notice: "오류로 인해 단어가 삭제되지 못하였습니다." 
     end
   end
+           
+  def build
+    @card = Card.build(word: params[:word], user_id: current_user.id) 
+  rescue Exception => e
+    render text: e.message
+  end
 end
