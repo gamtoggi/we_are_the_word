@@ -4,8 +4,10 @@ module YahooDic
     elem = doc.search("//div[@class='cnt']//dt").first          
     
     results =  []
-    while elem && (elem = elem.next_sibling).pathname == "dd"
-      results << Html.unescape(Html.remove_tag(elem.inner_html))
+    if elem
+      while (elem = elem.next_sibling) && elem.pathname == "dd"
+        results << Html.unescape(Html.remove_tag(elem.inner_html))
+      end
     end
     results
   end    
