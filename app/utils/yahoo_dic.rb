@@ -13,7 +13,7 @@ module YahooDic
   end    
   
   private
-  def self.url(word)
-    "http://kr.dictionary.search.yahoo.com/search/dictionaryp?subtype=eng&prop=1&p=#{word}"
+  def self.url(word) 
+    "http://kr.dictionary.search.yahoo.com/search/dictionaryp?subtype=eng&prop=1&p=#{Url.escape(word)}"
   end
 end

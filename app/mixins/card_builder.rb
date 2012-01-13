@@ -3,6 +3,7 @@ module CardBuilder
   def build(attributes)
     card = new(attributes)
     dic = find_dic(attributes[:word]) || create_dic(attributes[:word])
+    card.word = dic.word
     card.mean = dic.mean
     card
   end
