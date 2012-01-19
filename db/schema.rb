@@ -11,18 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226093730) do
+ActiveRecord::Schema.define(:version => 20120118080857) do
 
   create_table "cards", :force => true do |t|
-    t.integer  "user_id",                   :null => false
-    t.string   "word",                      :null => false
-    t.string   "mean",                      :null => false
-    t.integer  "level",      :default => 0, :null => false
+    t.integer  "user_id",                     :null => false
+    t.string   "word",                        :null => false
+    t.string   "mean",                        :null => false
+    t.integer  "level",        :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "remind_after"
+  end
+
+  add_index "cards", ["user_id"], :name => "index_cards_on_user_id"
+
+  create_table "dics", :force => true do |t|
+    t.string   "word",       :null => false
+    t.text     "mean",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "cards", ["user_id"], :name => "index_cards_on_user_id"
+  add_index "dics", ["word"], :name => "index_dics_on_word"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
