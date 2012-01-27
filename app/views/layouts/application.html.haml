@@ -20,7 +20,10 @@
   %body
     %p.notice= notice
     %p.alert= alert
-        
+    
+    %header
+      %h3 WeAreTheWord
+
     = yield
   %footer 
     = link_to "logout", destroy_user_session_path 

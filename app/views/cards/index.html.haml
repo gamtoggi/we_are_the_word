@@ -7,21 +7,11 @@
       });
     });   
 
-.header
-  .top
-    %h4.title We are the word
-    .add= link_to "Add", new_card_path, :class => "button"
-    .search.button= link_to "Search", "#", :class => "button"
-  .tabs
-
-
-         
-%nav.menu  
-  %ul.tabs
-    %li.tab= link_to "Today", cards_path
-    %li.tab= link_to "Remind", cards_path(tab: 'week')
-
-
+.new_card
+  = form_for Card.new do |f|
+    = f.text_field :word, :placeholder => "Enter new word"
+  
+    
 .cards
   - @cards.each do |card|
     .card[card]
