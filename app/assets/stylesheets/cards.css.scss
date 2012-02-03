@@ -1,0 +1,42 @@
+// Place all the styles related to the cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#add.button {
+	margin: 5px auto;
+	padding: 15px;
+	width: 80%;
+	background-color: #eeeeee;
+}
+
+.card {      
+	margin: 5px auto;
+	border: 1px solid #eee;
+	padding: 15px 20px;
+	width: 85%;
+	
+	.word {
+		font-size: 24px;
+    font-family: arial, sans-serif;
+    font-weight: bold;  
+	}
+	.mean {
+		margin: 20px 0px;
+		font-size: 16px;
+		font-family: arial, sans-serif;
+	}     
+	.controll {
+		height: 65px;
+		
+		.level_up.button {
+			padding: 8px 0;
+			width: 150px;
+			background-color: #00cc33;
+		}
+		.edit.button {
+			padding: 8px 0;
+			width: 50px;
+			background-color: #eeeeee;
+		}
+	}
+}

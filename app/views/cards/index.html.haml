@@ -7,21 +7,12 @@
       });
     });   
 
-.new_card
-  = form_for Card.new do |f|
-    = f.text_field :word, :placeholder => "Enter new word"
+%small today 15 | total 1645
   
-    
-.cards
-  - @cards.each do |card|
-    .card[card]
-      .word= card.word
-      .content
-        .mean= card.mean
-        .controll
-          = link_to 'Edit', edit_card_path(card)
-          = link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
+=link_to "추가 +", "#", :id => "add", :class => "button"
 
-= paginate @cards        
+.cards
+  = render partial: "card", collection: @cards    
+  
 
 

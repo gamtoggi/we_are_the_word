@@ -1,0 +1,11 @@
+.card[card]
+  .word= card.word
+  .content
+    .mean= card.mean
+    .controll
+      .left
+        %label "1단계"
+        = link_to "외움", "#", :class => "level_up button"
+      .right
+        %label "Edit"
+        = link_to 'Edit', edit_card_path(card), :class => "edit button"

@@ -4,15 +4,7 @@ class CardsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    cards = current_user.cards
-    
-    if params[:tab] == 'week'
-      cards = cards.week.create_asc
-    else
-      cards = cards.today.create_desc
-    end
-    
-    @cards = paginate(cards)
+    @cards = paginate current_user.cards.order("updated_at DESC")
   end
 
   def new
