@@ -7,10 +7,8 @@
           %li= msg
 
   .field
-    = f.label :word
-    = f.text_field :word
+    = f.text_field :word, :placeholder => "단어를 입력하세요"
   .field
-    = f.label :mean
-    = f.text_area :mean, :rows => 10
+    = f.text_area :mean, :rows => 6, :placeholder => "뜻을 입력하세요"
   .actions
     = f.submit 'Save'
