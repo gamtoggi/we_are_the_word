@@ -11,4 +11,9 @@
   .field
     = f.text_area :mean, :rows => 6, :placeholder => "뜻을 입력하세요"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save'     
+  
+  %hr
+  
+  .form-destroy
+    =link_to "삭제하시려면 여기를 누르세요.", @card, :method => "delete", :confirm => "정말로 삭제합니까?"
