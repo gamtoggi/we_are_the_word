@@ -1,18 +1,17 @@
-- content_for :head do
-  :javascript   
-    $(document).ready(function(){
-      $(".content").hide();
-      $(".word").click(function(){
-        $(this).siblings(".content").slideToggle("fast");
-      });
-    });   
+%h3= "Today : #{@cards.total_count}"
+%h4= "Total : #{current_user.cards_count}"
+%hr
 
-%small today 15 | total 1645
-  
-=link_to "추가 +", "#", :id => "add"
-
-.cards
-  = render partial: "card", collection: @cards    
+.w-cards
+  .b-add
+  =form_for Card.new do |f|
+    .b-add-show
+      .form-field= f.text_field :word, :placeholder => "+ ADD"
+    .b-add-hide
+      .form-field= f.text_area :mean
+      .form-action= f.submit "save"
+  .b-cards= render @cards
+  .b-pagination= paginate @cards
   
 
 

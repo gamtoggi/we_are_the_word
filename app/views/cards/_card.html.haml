@@ -1,11 +1,12 @@
-.card[card]
-  .word= card.word
-  .content
-    .mean= card.mean
-    .controll
-      .left
+.b-card[card]
+  .b-card-show
+    %h4.word= card.word
+  .b-card-hide
+    %p.mean= card.mean
+    .b-card-action
+      .level-up
         %label "1단계"
-        = link_to "외움", "#", :class => "level_up"
-      .right
+        = link_to "외움", "#"
+      .edit
         %label "Edit"
-        = link_to 'Edit', edit_card_path(card), :class => "edit"
+        = link_to 'Edit', edit_card_path(card)

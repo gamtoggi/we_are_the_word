@@ -1,7 +1,7 @@
 class Card < ActiveRecord::Base
-  paginates_per 100
+  paginates_per 20
  
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
                                                      
   scope :create_asc, order("cards.created_at ASC")
   scope :create_desc, order("cards.created_at DESC")
