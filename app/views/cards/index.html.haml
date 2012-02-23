@@ -5,12 +5,24 @@
   .b-add
   =form_for Card.new do |f|
     .b-add-show
-      .form-field= f.text_field :word, :placeholder => "+ ADD"
+      .form-field= f.text_field :word, :placeholder => "+ ADD" 
+      =link_to "Search", "#", :class => "btn-dic-search"
     .b-add-hide
       .form-field= f.text_area :mean, :rows => 5
       .form-action= f.submit "save"
   .b-cards= render @cards
   .b-pagination= paginate @cards
-  
+
+- content_for :head do
+  :javascript   
+    $(document).ready(function(){
+       $(".btn-dic-search").click(function(e){
+         e.preventDefault;
+          var word = $("input[name='card[word]']").val();
+          $.getJSON("/dics/search.json?word="+word, function(data){
+            $("textarea").text(data.mean);
+          });
+       });
+    });
 
 

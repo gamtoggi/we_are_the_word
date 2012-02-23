@@ -10,4 +10,5 @@ WeAreTheWord::Application.routes.draw do
   
   devise_for :users
   root :to => 'cards#index'
+  match '/dics/search.json' => 'dics#search'
 end
