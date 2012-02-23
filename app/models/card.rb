@@ -1,10 +1,29 @@
 class Card < ActiveRecord::Base
   paginates_per 20
- 
+  before_create :set_default_remind_after
+  
   belongs_to :user, :counter_cache => true
-                                                     
-  scope :create_asc, order("cards.created_at ASC")
-  scope :create_desc, order("cards.created_at DESC")
-  scope :today, where("cards.created_at >= ?", Time.zone.today)
-  scope :week, where("cards.created_at >= ? AND cards.created_at < ?", 1.week.ago.to_date, Time.zone.today)
+  
+  scope :today, where("cards.remind_after <= ?", Time.zone.now.to_s)
+  
+  def set_default_remind_after
+    self.remind_after = Time.zone.now
+  end
+  
+  def level_up!
+    update_attributes level: next_level, remind_after: next_remind
+  end
+  
+  def next_level
+    level + 1
+  end
+  
+  def next_remind       
+    Time.zone.now.beginning_of_day.since fib(next_level).days
+  end
+  
+  private
+  def fib(n)
+    n < 2 ? n : fib(n-1) + fib(n-2)
+  end
 end

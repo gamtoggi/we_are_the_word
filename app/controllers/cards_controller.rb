@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @cards = paginate current_user.cards.order("updated_at DESC")
+    @cards = paginate current_user.cards.today.order("updated_at DESC")
   end
 
   def new
