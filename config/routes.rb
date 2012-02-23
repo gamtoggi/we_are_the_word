@@ -3,6 +3,9 @@ WeAreTheWord::Application.routes.draw do
     collection do
       get :build
     end
+    member do
+      put :level_up
+    end
   end
   
   devise_for :users

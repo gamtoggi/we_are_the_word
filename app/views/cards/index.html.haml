@@ -1,5 +1,4 @@
-%h3= "Today : #{@cards.total_count}"
-%h4= "Total : #{current_user.cards_count}"
+%h3= "Today #{ pluralize @cards.total_count, 'word'}!"
 %hr
 
 .w-cards
@@ -8,7 +7,7 @@
     .b-add-show
       .form-field= f.text_field :word, :placeholder => "+ ADD"
     .b-add-hide
-      .form-field= f.text_area :mean
+      .form-field= f.text_area :mean, :rows => 5
       .form-action= f.submit "save"
   .b-cards= render @cards
   .b-pagination= paginate @cards

@@ -9,17 +9,21 @@ class Card < ActiveRecord::Base
   def set_default_remind_after
     self.remind_after = Time.zone.now
   end
-  
+    
   def level_up!
     update_attributes level: next_level, remind_after: next_remind
   end
   
   def next_level
     level + 1
+  end 
+  
+  def off_days
+    fib(next_level)
   end
   
-  def next_remind       
-    Time.zone.now.beginning_of_day.since fib(next_level).days
+  def next_remind
+    Time.zone.now.beginning_of_day.since off_days.days
   end
   
   private

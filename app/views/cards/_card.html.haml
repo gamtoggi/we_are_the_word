@@ -5,8 +5,7 @@
     %p.mean= card.mean
     .b-card-action
       .level-up
-        %label "#{card.level + 1}단계"
-        = link_to "외움", "#"
+        %label= "#{card.level + 1}단계"
+        = link_to "#{card.off_days}일 후 다시보기", level_up_card_path(card), :method => "put" 
       .edit
-        %label "Edit"
-        = link_to 'Edit', edit_card_path(card)
+        = link_to 'edit', edit_card_path(card)
