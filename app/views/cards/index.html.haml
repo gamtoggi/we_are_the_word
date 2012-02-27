@@ -1,28 +1,70 @@
-%h3= "Today #{ pluralize @cards.total_count, 'word'}!"
-%hr
-
-.w-cards
-  .b-add
+.b-add
   =form_for Card.new do |f|
     .b-add-show
       .form-field= f.text_field :word, :placeholder => "+ ADD" 
-      =link_to "Search", "#", :class => "btn-dic-search"
-    .b-add-hide
+    .b-add-hide{:style => "display: none" }
       .form-field= f.text_area :mean, :rows => 5
       .form-action= f.submit "save"
-  .b-cards= render @cards
-  .b-pagination= paginate @cards
+      = image_tag "ajax_busy.gif", :class => "b-add__ajax-busy", :style => "display: none"
+
+.b-status
+  %h3= "Today #{ pluralize @cards.total_count, 'word'}!"
+
+.b-cards
+  .b-cards-content
+    = render @cards
+  .b-cards-footer= paginate @cards
 
 - content_for :head do
   :javascript   
     $(document).ready(function(){
-       $(".btn-dic-search").click(function(e){
-         e.preventDefault;
-          var word = $("input[name='card[word]']").val();
-          $.getJSON("/dics/search.json?word="+word, function(data){
-            $("textarea").text(data.mean);
-          });
+       $("input[name='card[word]']").keyup(function(event){ 
+         event.preventDefault();
+         
+         setTimeout(function(){
+           var word = $("input[name='card[word]']").val();
+           
+           if($.trim(word).length > 0){
+             if($(".b-add-hide").css("display") == "none"){
+               $(this).addClass("shadow");
+               $(".b-add-hide").slideDown();
+             }
+             
+             $("textarea").css("opacity", "0.3");
+             $(".b-add__ajax-busy").css("display", "inline");
+             
+             $.getJSON("/dics/search.json?word="+word, function(data){
+               $(".b-add__ajax-busy").css("display", "none");
+               $("textarea").css("opacity", "1.0");
+               $("textarea").val(data.mean);
+             });
+           }
+         }, 300);
        });
+       
+       $(".b-cards").mouseenter(function(){
+         $("b-add").removeClass("shadow");
+         $(".b-add-hide").slideUp();
+       });
+       
+       $("input[name='card[word]']").bind("focus mouseenter", function(e){
+         if($.trim($(this).val()).length > 0){
+            $(this).addClass("shadow");
+            $(".b-add-hide").slideDown();
+         }
+       });
+       
+       $("form").bind("keypress", function(e) {
+         if (e.keyCode == 13) {
+           return false;
+         }
+       });
+       
+       $(".b-card").click(function(){
+         var mean = $(this).children(".b-card-hide").children("p.mean").html();
+         alert(mean);
+       });
+       
     });
 
 

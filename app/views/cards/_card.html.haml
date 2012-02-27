@@ -1,7 +1,7 @@
 .b-card[card]
-  .b-card-show
+  .b-card-show.b-card-show__cover
     %h4.word= card.word
-  .b-card-hide
+  .b-card-hide{:style => "display:none"}
     %p.mean= card.mean
     .b-card-action
       .level-up

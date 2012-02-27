@@ -8,9 +8,6 @@
     %meta{:name => "HandheldFriendly", :content => "True"}
     %meta{:name => "MobileOptimized", :content => "320"}
     
-    / jquery mobile
-    /%script{:src => "http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"}
-    
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -22,5 +19,5 @@
     %p.alert= alert
     
     .header
-      %h1= link_to "We are the Word", root_path
-    = yield
+      %h1.logo-title= link_to raw("We<br />are the<br />Word"), root_path
+    .container= yield
